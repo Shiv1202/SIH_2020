@@ -1,8 +1,6 @@
 a, a:hover{
     color: inherit;
-}
-.root {
-    margin: 0 auto;
+    text-decoration: none;
 }
 .head
 {
@@ -21,6 +19,14 @@ a, a:hover{
     bottom: 0;
     color: white;
     text-align: center;
+}
+.logo img
+{
+    width: 35%;
+}
+#f-text
+{
+    margin-bottom: 0.3rem;
 }
 .card
 {
@@ -52,47 +58,29 @@ a, a:hover{
     margin-top: 20px;
     font-size: large;
 }
-.logo img
-{
-    width: 35%;
-}
 
-#f-text
-{
-    margin-bottom: 0.3rem;
-}
-
-/* #typewriter {
-    white-space: nowrap;
-    overflow: hidden; 
-    animation: animated-text 3s steps(30,end) 1s infinite normal forwards;  
-  }
-@keyframes animated-text{
-    from{width: 0;}
-    to{width: 540px;}
-  } */
 
   #c-id4
   {
     z-index: 2;
     bottom: 20%;
-    right: 15%;
+    right: 10%;
   }
   #c-id3
   {
-    right: 35%;
     top: 20%;
+    left: 47%;
   }
   #c-id2
   {
     bottom: 15%;
-    right: 50%;
+    right: 45%;
     z-index: -1;
   }
   #c-id1
   {
     top: 23%;
-    left: 5%;
+    left: 10%;
   }
   .buttons
   {
