@@ -1,0 +1,134 @@
+body
+{   
+    background-image: url(../images/back.jpg);
+    padding: 0;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+}
+a
+{
+    text-decoration: none;
+}
+a:hover
+{
+    text-decoration: none;
+}
+.back
+{  width: 100%;
+    height: 100vh;
+    position: absolute;
+    background: #000000ad;
+    z-index: -1;
+}
+.root
+{
+    position: fixed;
+    z-index: 1;
+    background: #ffffff9e;
+    height: max-content;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 4em 0em !important;
+    border-radius: 0.42em;
+}
+.form-holder
+{
+    padding-right: 8em;
+    position: fixed !important;
+    z-index: 3;
+    background-color: white;
+    clip-path: polygon(48% 0, 100% 0%, 100% 100%, 20% 100%);
+    top: 0;
+    right: 0;
+    height: 100vh;
+}
+.text-wrap 
+{
+    text-align: center;
+}
+.text-wrap img
+{
+    height: 20vw;
+    padding: 1em 2em
+}
+.btn
+{
+    background: #FFA11B;
+    color: white;
+    padding: 0.5em 1.3em;
+    border-radius: 2em;
+    margin-top: 1rem;
+}
+.form-group
+{
+    margin: 1rem auto;
+    width: 300px;
+}
+.form-control
+{
+    box-shadow: 0px 3px 6px #00000029;
+    border: none;
+}
+.form-control:focus
+{
+    border-left: 5px solid #FFA11B;
+    padding: 1.375rem 0.75rem;
+}
+.form-control2
+{
+    width: 100px;
+    float: left;
+    margin-bottom: 1rem;
+}
+.form-control3
+{
+    width: 185px;
+    float: left;
+    margin-left: 15px;
+}
+.link
+{
+    width: max-content !important;
+}
+.imageicon
+{
+    text-align: center;
+}
+.imageicon img
+{
+    height: 10vw;
+    padding: 0;
+}
+.form-wrap
+{
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+.custom-checkbox .custom-control-label::before {
+    border-radius: 0;
+}
+.custom-control-input:checked~.custom-control-label::before {
+    color: black;
+    border-color: black;
+    background-color: white;
+}
+.custom-checkbox .custom-control-input:checked~.custom-control-label::after {
+    background-image: url(../images/check.svg);
+}
+.new
+{
+    position: fixed;
+    right: 15px;
+    bottom: 20px;
+}
+.wrap
+{
+    align-items: center;
+    margin: 0 auto;
+}

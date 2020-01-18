@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>  
+    <link rel="stylesheet" href="{% static 'Users/css/onboarding.css' %}">
+    <title>OnBoarding</title>
+</head>
+<body>
+    <header class="col-md-12 row head">
+        <div class="logo col-md-2">
+            <img src="{% static 'Users/images/Seal_of_Goa.png' %}" alt="">
+        </div>
+        <div class="col-md-8 title">
+            <h2 id="typewriter">ALUMNI REGISTRATION PORTAL</h2>
+        </div>
+        <div class="col-md-2"></div>
+    </header>
+    <div class="root">
+        <div class="col-md-3 card" id="c-id1">
+            <div class="card-wrap col-md-10">
+                <div class="image"><img src="{% static 'Users/images/1.svg' %}" alt=""></div>
+                <div class="label">Participate in different events</div> 
+            </div>    
+        </div>
+
+        <div class="col-md-3 card" id="c-id2">
+            <div class="card-wrap col-md-12">
+                <div class="image"><img src="{% static 'Users/images/2.svg' %}" alt=""></div>
+                <div class="label">Communicate with other Alumni Members</div> 
+            </div>    
+        </div>
+
+        <div class="col-md-3 card" id="c-id3">
+            <div class="card-wrap col-md-10">
+                <div class="image"><img src="{% static 'Users/images/3.svg' %}" alt=""></div>
+                <div class="label">Publish Notices</div> 
+            </div>    
+        </div>
+
+        <div class="col-md-3 card"id="c-id4">
+            <div class="card-wrap col-md-12">
+                <div class="image"><img src="{% static 'Users/images/4.svg' %}" alt=""></div>
+                <div class="label">Contribute to Your College</div> 
+            </div>    
+        </div>
+        <div class="col-md-4 row buttons">
+            <button class="btn col-md-4"><a href="{% url 'login' %}">LOGIN</a></button>
+            <button class="btn col-md-4"><a href="{% url 'register' %}">REGISTER</a></button>
+
+        </div>
+
+    </div>
+    <footer class="col-md-12 foot">
+        <p id="f-text">© Copyright 2020, TEAM RACHNATMAK</p>
+    </footer>
+</body>
+</html>

@@ -25,12 +25,16 @@ SECRET_KEY = 'hr7cv49^9mmm9o8%@-yz#2-&5=@=s@5(0c7xt!_=&8wj_yh#k%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+reCAPTCHA_SITE_KEY = '6Leqrs8UAAAAAOps-MDPpdazEZ9s7pJ66foTFAwH'
+reCAPTCHA_SECRET_KEY = '6Let9M8UAAAAACAReZPyHBQ0Onc0or7ZuNB19Di4'
+
 ALLOWED_HOSTS = []
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'Users.apps.UsersConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

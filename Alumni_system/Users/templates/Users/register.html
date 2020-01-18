@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+          <title>REGISTER</title>
+        
+        
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>  
+        <link type="text/css" rel="stylesheet" href="{% static 'Users/css/style.css' %}">
+    </head>
+    <body>
+      <div class="back"></div>
+        <div class="root col-md-9">
+            <div class="text-wrap col-md-6">
+                <h1>Hello Alumni</h1>
+                <h5>Welcome to the Alumni Registration Portal</h5>
+                <img src="{% static 'Users/images/undraw_access_account_99n5.svg' %}" alt="">
+                
+                <p>© Copyright 2020, TEAM RACHNATMAK</p>
+            </div>
+        </div>
+        <div class="form-holder col-md-9 row">
+            <div class="col-md-6"></div>
+            <div class="text-wrap col-md-6">
+                <div class="form-wrap">
+                    <div class="imageicon"><img src="{% static 'Users/images/Seal_of_Goa.png' %}" id="output"></div>
+                    <div class="info">
+                        
+                        <form action="{% url 'register' %}" method = "POST" class="needs-validation" novalidate>
+                            {% csrf_token %}
+                            <div class="form-group">
+                                {{ form.name }}
+                            </div>
+                            <div class="form-group">
+                              {{ form.email }}
+                            </div>
+                            <div class="form-group">
+                                {{ form.college_name }}
+                            </div>
+                            <div class="form-group">
+                                {{ form.graduation_yr }}
+                            </div>
+                            <div class="form-group">
+                                {{ form.roll_no }}
+                            </div>
+                            <div class="form-group">
+                              {{ form.password }}
+                            </div>
+                            <div class="form-group">
+                                {{ form.c_password }}
+                                
+                            </div>
+                            <button type="submit" class="btn ">REGISTER NOW</button>
+                          </form>
+                        </div>
+                        
+                        <script>
+                        // Disable form submissions if there are invalid fields
+                        (function() {
+                          'use strict';
+                          window.addEventListener('load', function() {
+                            // Get the forms we want to add validation styles to
+                            var forms = document.getElementsByClassName('needs-validation');
+                            // Loop over them and prevent submission
+                            var validation = Array.prototype.filter.call(forms, function(form) {
+                              form.addEventListener('submit', function(event) {
+                                if (form.checkValidity() === false) {
+                                  event.preventDefault();
+                                  event.stopPropagation();
+                                }
+                                form.classList.add('was-validated');
+                              }, false);
+                            });
+                          }, false);
+                        })();
+                        </script>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
