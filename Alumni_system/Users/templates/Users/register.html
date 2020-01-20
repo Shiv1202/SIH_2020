@@ -33,7 +33,7 @@
                     <div class="imageicon"><img src="{% static 'Users/images/Seal_of_Goa.png' %}" id="output"></div>
                     <div class="info">
                         
-                        <form action="{% url 'register' %}" method = "POST" class="needs-validation" novalidate>
+                        <form action="{% url 'user-register' %}" method = "POST" class="needs-validation" novalidate>
                             {% csrf_token %}
                             <div class="form-group">
                                 {{ form.name }}
@@ -56,6 +56,10 @@
                             <div class="form-group">
                                 {{ form.c_password }}
                                 
+                            </div>
+                            <div class="upload">
+                              <button type="button"><img src="{% static 'Users/images/upload.svg' %}" alt=""></button>
+                              <p class="text-muted">Upload id proof</p>
                             </div>
                             <button type="submit" class="btn ">REGISTER NOW</button>
                           </form>

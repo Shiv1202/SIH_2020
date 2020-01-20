@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponse
 from . import forms
 import json
 import requests
@@ -10,9 +10,8 @@ def on_bording(request):
     return render(request, 'Users/onboarding.html')
 
 
-# Create your views here.
-def home(request):
-    return HttpResponse("Home Page.")
+def user_dashboard(request):
+    return HttpResponse("User DashBoard Page.")
 
 def register(request):
     
@@ -22,11 +21,11 @@ def register(request):
             # user = form.save()
             # user.set_password(user.password)
             form.save()
-            return redirect('login')
+            return redirect('/user-login/')
     
     else:
         form = forms.RegistrationForm()
-        return render(request, 'Users/register.html', context = {'form' : form})
+    return render(request, 'Users/register.html', context = {'form' : form})
 
 def login(request):
     if request.method == 'POST':
@@ -37,7 +36,9 @@ def login(request):
             secret_key = reCAPTCHA_SECRET_KEY
             clint_key = request.POST['g-recaptcha-response']
             print(email, password)
-            #user = Alumni_User.objects.filter(email = email)
+            user = Alumni_User.alumni.filter(email = email)
+            #for u in user:
+                #if u.password == password:
 
             # captcha verification.
             data = {
@@ -51,9 +52,7 @@ def login(request):
             print('Your success is: ', verify)
 
             if verify:
-                return redirect('user-homepage')
-            else:
-                return render(request, 'Users/login.html', context = {'form' : form})
-    else:
-        form = forms.LogInForm()
-        return render(request, 'Users/login.html', context = {'form' : form })
+                return redirect('/dashboard-user/')
+            
+    form = forms.LogInForm()
+    return render(request, 'Users/login.html', context = {'form' : form })
