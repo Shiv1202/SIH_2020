@@ -5,6 +5,7 @@ import json
 import requests
 from .models import Alumni_User
 from .tokens import account_activation_token
+from django.contrib.auth.hashers import make_password
 from Alumni_system.settings import reCAPTCHA_SECRET_KEY
 from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
@@ -29,8 +30,9 @@ def register(request):
         form = forms.RegistrationForm(request.POST)
         if form.is_valid():
             # user = form.save()
-            # user.set_password(user.password)
+            #user12.password=make_password(user12.password,None, 'md5')
             user12 = form.save(commit=False)
+            #user12.password=make_password(user12.password)
             user12.is_active = False
             user12.save()
             current_site = get_current_site(request)
@@ -95,3 +97,64 @@ def login(request):
     else:
         form = forms.LogInForm()
         return render(request, 'Users/login.html', context = {'form' : form })
+
+
+def forget_password(request):
+    #print('hello')
+    if request.method == 'POST':
+        email = request.POST['email']
+        user12=None
+        #print('hello')
+        #print(email)
+        try :
+            user12 = Permanent_User.objects.get(email=email)
+            current_site = get_current_site(request)
+            message = render_to_string('Users/reset/password_reset_email.html', {
+                'user':user12, 'domain':current_site.domain,
+                'uid': urlsafe_base64_encode(force_bytes(user12.pk)),
+                'token': account_activation_token.make_token(user12),
+            })
+            mail_subject = 'Password Reset'
+            email = EmailMessage(mail_subject, message, to=[email])
+            email.send()
+            return redirect('login')
+        except(TypeError, ValueError,User.DoesNotExist):
+            return HttpResponse('Email is not registered!!')
+    form = forms.ForgetForm()
+    return render(request, 'Users/reset/reset_form.html',context={'form':form})
+
+def password_reset_confirm(requests,uidb64, token):
+    try:
+        uid = force_text(urlsafe_base64_decode(uidb64))
+        user12 = Permanent_User.objects.get(pk=uid)
+    except(TypeError, ValueError, OverflowError, User.DoesNotExist):
+        user12 = None
+    if user12 is not None and account_activation_token.check_token(user12, token):
+        form = forms.PasswordUpdationForm()
+        context={
+            'form':form,
+            'user12':user12 
+        }
+        return render(requests, 'Users/reset/password_updation.html',context)
+    
+
+    else:
+        return HttpResponse('Activation link is invalid!')
+
+def password_updation(requests):
+    if requests.method == 'POST':
+        form = forms.PasswordUpdationForm(requests.POST)
+        #print(form.password)
+        if form.is_valid():
+            email = requests.POST['email']
+            password = requests.POST['password']
+            user34 = Permanent_User.objects.filter(email=email).update(password=password)
+            return redirect('login')
+        
+        
+
+
+    
+
+    
+
