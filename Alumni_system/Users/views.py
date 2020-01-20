@@ -32,7 +32,7 @@ def register(request):
             # user = form.save()
             #user12.password=make_password(user12.password,None, 'md5')
             user12 = form.save(commit=False)
-            #user12.password=make_password(user12.password)
+            user12.password=make_password(user12.password)
             user12.is_active = False
             user12.save()
             current_site = get_current_site(request)
@@ -148,6 +148,7 @@ def password_updation(requests):
         if form.is_valid():
             email = requests.POST['email']
             password = requests.POST['password']
+            password=make_password(password)
             user34 = Permanent_User.objects.filter(email=email).update(password=password)
             return redirect('login')
         
