@@ -14,10 +14,11 @@ class Alumni_User(models.Model):
     graduation_yr = models.IntegerField(validators = [MinValueValidator(1900), MaxValueValidator(datetime.date.today().year)])
     roll_no = models.IntegerField(unique = True)
     password = models.CharField(max_length = 60)
+    is_active = models.BooleanField(default = False)
     is_verified = models.BooleanField(default = False)
 
     def __str__(self):
-        return (self.name, self.college_name, self.graduation_yr, self.roll_no)
+        return (self.name)
 
 
 # College Model for sotring data in Database.

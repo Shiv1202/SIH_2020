@@ -4,7 +4,16 @@ from . import forms
 import json
 import requests
 from .models import Alumni_User
+from .tokens import account_activation_token
 from Alumni_system.settings import reCAPTCHA_SECRET_KEY
+from django.contrib.sites.shortcuts import get_current_site
+from django.utils.encoding import force_bytes, force_text
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.template.loader import render_to_string
+from .tokens import account_activation_token
+from django.contrib.auth.models import User
+from django.core.mail import EmailMessage
+from django.core.mail import send_mail
 
 def on_bording(request):
     return render(request, 'Users/onboarding.html')
@@ -21,12 +30,41 @@ def register(request):
         if form.is_valid():
             # user = form.save()
             # user.set_password(user.password)
-            form.save()
+            user12 = form.save(commit=False)
+            user12.is_active = False
+            user12.save()
+            current_site = get_current_site(request)
+            message = render_to_string('Users/acc_active_email.html', {
+                'user':user12, 'domain':current_site.domain,
+                'uid': urlsafe_base64_encode(force_bytes(user12.pk)),
+                'token': account_activation_token.make_token(user12),
+            })
+            mail_subject = 'Activate your blog account.'
+            # from_email = ['teamrachnatmaksih2020@gmail.com']
+            to_email = form.cleaned_data.get('email')
+            # send_mail(mail_subject, message, from_email, to_email, fail_silently=True)
+            email = EmailMessage(mail_subject, message, to=[to_email])
+            email.send()
             return redirect('login')
     
     else:
         form = forms.RegistrationForm()
-        return render(request, 'Users/register.html', context = {'form' : form})
+    return render(request, 'Users/register.html', context = {'form' : form})
+
+def activate(request, uidb64, token):
+    try:
+        uid = force_text(urlsafe_base64_decode(uidb64))
+        user12 = Alumni_User.objects.get(pk=uid)
+    except(TypeError, ValueError, OverflowError, User.DoesNotExist):
+        user12 = None
+    if user12 is not None and account_activation_token.check_token(user12, token):
+        user12.is_active = True
+        user12.save()
+        #login(request, user)
+        # return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
+        return redirect('login')
+    else:
+        return HttpResponse('Activation link is invalid!')
 
 def login(request):
     if request.method == 'POST':
