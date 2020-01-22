@@ -2,14 +2,20 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from . import forms
 from Alumni_system.settings import reCAPTCHA_SECRET_KEY, reCAPTCHA_SITE_KEY
-from Users.models import Colleges
+from Users.models import Colleges, Permanent_User
 import requests, json
+from Users.views import user
 
 def on_bording(request):
     return render(request, 'College/onboarding.html')
 
 def college_home(request):
-    return HttpResponse('College-home.')
+    user = Permanent_User.objects.filter(roll_no = 1703213101)
+    data = {}
+    for u in user:
+        data['name'] = u.name
+        data['email'] = u.email
+    return render(request, 'College/collegedashboard.html', context = {'data' : data})
 
 def college_login(request):
     if request.method == 'POST':

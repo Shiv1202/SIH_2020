@@ -33,7 +33,7 @@
                     <div class="imageicon"><img src="{% static 'Users/images/Seal_of_Goa.png' %}" id="output"></div>
                     <div class="info">
                         
-                        <form action="{% url 'user-register' %}" method = "POST" class="needs-validation" novalidate>
+                        <form action="{% url 'register' %}" method = "POST" class="needs-validation" novalidate>
                             {% csrf_token %}
                             <div class="form-group">
                                 {{ form.name }}

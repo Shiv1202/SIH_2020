@@ -1,0 +1,208 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <script src="https://kit.fontawesome.com/90f0a938cd.js"></script> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>  
+    <link rel="stylesheet" href="{% static 'Users/css/dashboard.css' %}">
+    <title>ALUMNI - Dashboard</title>
+</head>
+<body>
+    <div class="">
+        <header class="col-md-12 row head fixed-top">
+            <div class="logo col-md-2">
+                <img src="{% static 'Users/images/Seal_of_Goa.png' %}" alt="">
+            </div>
+            <div class="col-md-8 title">
+                <h2>ALUMNI REGISTRATION PORTAL</h2>
+            </div>
+            <div class="col-md-2"></div>
+        </header>
+        <div class="main col-md-12">
+          <div class="left-panel col-md-4">
+            <div class="profile-card col-md-9">
+                    <h3>MY PROFILE</h3>
+                    <div class="imageicon"><img src="{% static 'Users/images/user icon.svg' %}" id="output"></div>
+
+                    <div class="info col-md-10">
+                        <h5>John Doe</h5>
+                        <h5>Assistant Manager at ABC corp.</h5>
+                        <br>
+                        <h6>ABC college of engineering</h6>
+                        <h6>9876543210</h6>
+                        <h6>B.Tech</h6>
+                        <h6>12 Aug,1990</h6>
+                        <h6>Delhi</h6>
+                    </div>
+            </div>
+        </div>
+          <div class="root col-md-12 row">
+            <div class="col-md-4"></div>
+            <div class="scroll col-md-5">
+                <div class="search col-md-12">
+                  <form action="">
+                    <input type="text" name="search" placeholder="Search..">
+                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                  </form>
+                </div>
+                <div class="feed col-md-12">
+                  <div class="event-card col-md-12">
+                    <div class="col-md-12 event-banner">
+                      <img src="{% static 'Users/images/event-card.jpg' %}" alt="">
+                    </div>
+                    <div class="col-md-12 event-info">
+                        <h5>Lorem ipsum dolor sit amet.</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, cumque. Lorem ipsum dolor sit amet.
+                        </p>
+                        <div class="link col-md-12 row">
+                          <p class="col-md-6">abc college</p>
+                          <p class="col-md-4"><img src="{% static 'Users/images/time black.svg' %}" alt=""> 1hr ago</p>
+                          <div class="col-md-2"><button><img id="save" src="{% static 'USers/images/before bookmark.svg' %}" alt=""></button></div>
+                        </div>
+                        <script>
+                              $(document).ready(function(){
+                                  $("#save").click(function(){
+                                  var src = $(this).attr('src');
+                                  var newsrc = (src=='{% static "Users/images/before bookmark.svg" %}') ? '{% static "Users/images/my events.svg" %}' : '{% static "Users/images/before bookmark.svg" %}';
+                                  $(this).attr('src', newsrc );
+                                  });
+                              });
+                        </script>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+    
+        </div>
+
+        <div class="right-panel col-md-3">
+          <div class="logout">
+            <a href="{% url 'home' %}"><button id="logout-btn">Logout <img src="{% static 'Users/images/right hand arrow.svg' %}" alt=""></button></a>
+          </div>
+          <div class="menu">
+            <nav class="navbar">
+              <ul class="navbar-nav">
+                <a class="nav-link" href="./personal.html"><li class="nav-item">
+                  <img src="{% static 'Users/images/MY PROFILE.svg' %}" alt=""> PROFILE
+                </li></a>
+                <a class="nav-link" onclick="openNav('id-Messages')"><li class="nav-item">
+                  <img src="{% static 'Users/images/MESSAGES.svg' %}" alt=""> MESSAGES
+                </li></a>
+                <a class="nav-link" onclick="openNav('id-Notifications')"><li class="nav-item">
+                  <img src="{% static 'Users/images/NOTIFICATIONS.svg' %}" alt="">  NOTIFICATIONS
+                </li></a> 
+                <a class="nav-link" onclick="openNav('id-events')"><li class="nav-item">
+                  <img src="{% static 'Users/images/my events.svg' %}" alt=""> MY EVENTS
+                </li></a> 
+                <a class="nav-link" onclick="openNav('id-Settings')"><li class="nav-item">
+                  <img src="{% static 'Users/images/SETTINGS.svg' %}" alt=""> SETTINGS
+                </li></a>                   
+              </ul>
+            </nav>  
+                        <!-- Settings -->
+                        <div id="id-Settings" class="sidenav">
+                          <div class="col-md-12 row"><h4 class="col-md-6">Settings</h4> <button class="closebtn col-md-2 back" onclick="closeNav('id-Settings')"><img src="{% static 'Users/images/right hand arrow.svg' %}" alt=""></button></div>
+                          <div class="sidenav-menu">
+                            <a href="#"><img src="{% static 'Users/images/PERSONAL SETTINGS ICON.svg' %}" alt=""> Personal Settings</a>
+                            <a href="#"><img src="{% static 'Users/images/SECURITY ICON.svg' %}" alt=""> Security</a>
+                            <a href="#"><img src="{% static 'Users/images/HELP ICON.svg' %}" alt=""> Help</a>
+                            <a href="#"><img src="{% static 'Users/images/ABOUT ICON.svg' %}" alt=""> About</a>
+                            <a href="#"><img src="{% static 'Users/images/PRIVACY ICON.svg' %}" alt=""> Privacy</a>
+                          </div>
+                          <div class="logout">
+                            <a href="./login.html"><button id="sidenav-logout-btn">Logout <img src="{% static 'Users/images/right hand arrow.svg' %}" alt=""></span></button></a>
+                          </div>
+                        </div>
+                        <!-- messages -->
+                        <div id="id-Messages" class="sidenav">
+              
+                          <div class="search-sidenav col-md-12">
+                            <div class="col-md-12 row"><h4 class="col-md-6">Chats</h4> <button class="closebtn col-md-2 back" onclick="closeNav('id-Messages')"><img src="{% static 'Users/images/right hand arrow.svg' %}" alt=""></button></div>
+                            <form action="">
+                              <input type="text" name="search" placeholder="Search..">
+                              <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                            </form>
+                          </div>
+                          <div class="sidenav-info sidenav-scroll">
+                              <div class="chat col-md-12 row">
+                                <div class="col-md-2 avtar"><img src="{% static 'Users/images/user icon.svg' %}" alt=""></div>
+                                <div class="msg col-md-8"><h6>Lorem Ipsum Name</h6>
+                                <p class="text-muted">xyz college</p>
+                                <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p>
+                                </div>
+                                <div class="col-md-1 time">
+                                    <p class="notify-count">2</p>
+                                    <p class="timestamp">17:35</p>
+                                </div>
+                              </div>
+                          </div>
+                        </div>
+
+                        <!-- notifications -->
+                        <div id="id-Notifications" class="sidenav">
+                          
+                          <div class="col-md-12 row"><h4 class="col-md-6">Notifications</h4> <button class="closebtn col-md-2 back" onclick="closeNav('id-Notifications')"><img src="{% static 'Users/images/right hand arrow.svg' %}" alt=""></button></div>
+                          <div class="sidenav-info sidenav-scroll">
+                              <div class="chat col-md-12 row">
+                                <div class="col-md-2 avtar"><img src="{% static 'Users/images/user icon.svg' %}" alt=""></div>
+                                <div class="msg col-md-8"><h6>Lorem Ipsum Name</h6>
+                                <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p>
+                                </div>
+                                <div class="col-md-1 time">
+                                    <p class="timestamp">17:35</p>
+                                </div>
+                              </div>
+                          </div>
+                        </div>
+                        <!-- my events -->
+                        <div id="id-events" class="sidenav">
+              
+                          <div class="search-sidenav col-md-12">
+                            <div class="col-md-12 row"><h4 class="col-md-6">My Events</h4> <button class="closebtn col-md-2 back" onclick="closeNav('id-events')"><img src="{% static 'Users/images/right hand arrow.svg' %}" alt=""></button></div>
+                          </div>
+                          <div class="sidenav-info sidenav-scroll">
+                              <div class="sidenav-eventcard col-md-12">
+                                <div class="col-md-12 heading">
+                                  <h6>Event heading</h6>
+                                  <p>college • 49s</p>
+                                </div>
+                                <div class="side-event-info col-md-12 row">
+                                    <div class="avtar col-md-4">
+                                      <img src="{% static 'Users/images/events.jpg' %}" alt="">
+                                    </div>
+                                    <div class="col-md-8 event-desc">
+                                      <p>Name Surname Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                                    </div>
+                                </div>
+                              </div>
+                          </div>
+                        </div>
+            </div>
+          </div>
+
+          <script>
+            function openNav(x) {
+                  document.getElementById(x).style.width = "22vw";
+                }
+
+                function closeNav(x) {
+                  document.getElementById(x).style.width = "0";
+                }
+          </script>
+      </div>
+        </div>
+        <footer class="col-md-12 foot fixed-bottom">
+            <p id="f-text">© Copyright 2020, TEAM RACHNATMAK</p>
+        </footer>
+
+    </div>
+</body>
+</html>

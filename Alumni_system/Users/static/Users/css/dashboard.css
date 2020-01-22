@@ -1,0 +1,393 @@
+a, a:hover
+{
+    color: inherit;
+    text-decoration: none;
+}
+button:focus
+{
+    outline: 0 !important;
+}
+.head
+{
+  margin: 0;
+  background-color: #FFA11B;
+  color: white;
+  padding: 0.5em 0em;
+  text-align: center;
+  box-shadow: 0px 10px 15px #00000029;
+  align-items: center;
+}
+.foot
+{
+    background-color: #FFA11B;
+    color: white;
+    text-align: center;
+}
+.logo img
+{
+    width: 35%;
+}
+#f-text
+{
+    margin-bottom: 0.3rem;
+}
+.main
+{
+    height: 100vh;
+}
+
+.imageicon
+{       
+    height: 110px;
+    width: 110px;
+    margin: 0.3rem auto;
+    border-radius: 50%;
+    border: 2px solid #FFA11B;
+    text-align: center;
+    box-shadow: 0px 3px 6px #00000029;
+}
+.imageicon img
+{
+    height: 6.2rem;
+    margin-top: 9px;
+}
+.right-panel
+{
+    color: #FFA11B;
+    font-weight: bold;
+    position: fixed;
+    right: 0;
+    top: 35%;
+}
+.left-panel
+{
+    position: fixed;
+    left: 0;
+    top: 20%;
+}
+.profile-card
+{
+    margin: 0 auto;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 10px;
+    padding: 2em 1em;
+    
+}
+.profile-card h3
+{
+    text-align: center;
+}
+.profile-card h5
+{
+    opacity: 0.8;
+}
+.profile-card h6
+{
+    opacity: 0.6;
+}
+.info
+{
+    margin: 0 auto;
+}
+.root
+{
+    margin: 0 auto;
+    position: absolute;
+    align-items: center;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, 0);
+}
+.btn
+{
+    font-weight: bolder;
+    color: #FFA11B;
+    background-color: #fff;
+    padding: 0.2em 1.3em;
+    border-radius: 2em;
+    margin-bottom: 0.5rem;
+    border: 2px solid #FFA11B;
+}
+#logout-btn
+{
+    position: absolute;
+    background: none;
+    border: none;
+    color: #FFA11B;
+    font-weight: bold;
+    top: -5em;
+    right: 2em;
+    font-size: larger;
+}
+#sidenav-logout-btn
+{
+    position: absolute;
+    background: none;
+    border: none;
+    color: #FFA11B;
+    font-weight: bold;
+    bottom: 10em;
+    right: 2em;
+    font-size: larger;
+}
+#arrow
+{
+    color: black;
+}
+.search
+{
+    position: sticky;
+    top: 15%;
+    z-index: 6;
+    background: white;
+    padding: 2em 0em 0.5em 0em;
+}
+.search button {
+    background: none;
+    padding: 1em 0.4em;
+    border: none;
+    position: absolute;
+    outline: none;
+    right: 2em;
+}
+.search input
+{
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #FFA11B;
+  border-radius: 4px;
+  font-size: 16px;
+  background-color: white;
+  padding: 12px 20px 12px 40px;
+  box-shadow: 0px 3px 6px #00000029;
+}
+.navbar ul li
+{
+    padding: 0.3em 0.7em;
+}
+.navbar ul li:hover
+{
+    cursor: pointer; 
+}
+.navbar img, .logout img
+{
+    height: 20px;
+    margin-right: 10px;
+}
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 10%;
+    right: 0;
+    background-color:white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+  }
+  .sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    color: #FFA11B;
+    display: block;
+    transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+    /* color: #f1f1f1; */
+    cursor: pointer;
+  }
+  
+  .sidenav .closebtn
+  {
+    position: absolute;
+    right: 0;
+    font-size: 36px;
+  }
+  
+  .feed
+  {
+    margin-top: 1rem;
+  }
+  .event-banner img
+  {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+  .event-card
+  { 
+    padding: 1rem 0em;
+    margin: 1rem auto;
+    box-shadow: 0px 3px 6px #00000029;
+  }
+  .link
+  {
+    margin: 0 auto;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .link button img
+  {
+    height: 25px;
+  }
+  .link button
+  {
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+    background: none;
+    border: none;
+    text-align: center;
+  }
+  .link img, .sidenav img
+  {
+    height: 20px;
+  }
+  .link div
+  {
+      text-align: right;
+  }
+  .back
+  {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    right: 0;
+    top: -20px !important;
+  }
+  .sidenav-menu
+  {
+      margin: 3em auto;
+  }
+  .search-sidenav
+  {
+    position: sticky;
+    top: 0%;
+    z-index: 6;
+    background: white;
+    padding: 1em 0.7em;
+  }
+  .search-sidenav button
+{
+    background: none;
+    padding: 0.2em 0.4em;
+    border: none;
+    position: absolute;
+    outline: none;
+    right: 0.9em;
+}
+.search-sidenav input
+{
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #FFA11B;
+    border-radius: 4px;
+    font-size: 12px;
+    background-color: white;
+    padding: 5px 12px;
+    box-shadow: 0px 3px 6px #00000029;
+}
+.msg p, .time p
+{
+    color: black;
+    font-size: 10px;
+} 
+.sidenav-scroll
+{
+    padding: 1rem 0.7rem;
+}
+.chat
+{
+    padding: 0 0.5em;
+    margin: 0 auto;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 3px;
+    justify-content: space-evenly;
+    margin-top: 1rem;
+}
+.avtar
+{
+    padding-left: 0;
+    text-align: center;
+}
+.avtar img
+{
+    height: 42px;
+}
+.msg
+{
+    margin: 0;
+    padding: 0;
+}
+.timestamp
+{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: #FFA11B !important;
+}
+.notify-count
+{
+    background: rgba(255, 161, 27, 0.3) !important;
+    color: #FFA11B !important;
+    border-radius: 50%;
+    height: 20px;
+    width: 20px;
+    text-align: center;
+    padding: 3px 0;
+}
+
+.accordion {
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    transition: 0.4s;
+    padding: 10px 0;
+  }
+  
+  .active, .accordion:hover {
+    background-color: rgba(255, 161, 27, 0.3) !important; 
+  }
+  
+  .panel {
+    margin: 0 auto;
+    padding: 5px 18px;
+    display: none;
+    background-color: white;
+    overflow: hidden;
+    font-size: 12px;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    box-shadow: 0px 3px 6px #00000029;
+  }
+  .panel img
+  {
+    height: 50px;
+  }
+  .sidenav-eventcard
+  {
+    margin: 0 auto;
+    padding: 0 18px;
+    overflow: hidden;
+    font-size: 10px;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0px 3px 6px #00000029;
+  }
+  .side-event-info
+  {
+      margin: 0;
+      padding: 0;
+  }
+  .sidenav-eventcard img
+  {
+    height: 50px;
+  }
+  .event-desc
+  {
+      color: black;
+  }

@@ -1,0 +1,267 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <script src="https://kit.fontawesome.com/90f0a938cd.js"></script> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>  
+    <link rel="stylesheet" href="{% static 'Users/css/dashboard.css' %}">
+    <title>Admin-Dashboard</title>
+</head>
+<body>
+    <div class="">
+        <header class="col-md-12 row head fixed-top">
+            <div class="logo col-md-2">
+                <img src="{% static 'College/images/Seal_of_Goa.png' %}" alt="">
+            </div>
+            <div class="col-md-8 title">
+                <h2>ALUMNI REGISTRATION PORTAL</h2>
+            </div>
+            <div class="col-md-2"></div>
+        </header>
+        <div class="main col-md-12">
+          <div class="left-panel col-md-4">
+            <div class="profile-card col-md-9">
+                    <h3>COLLEGE PROFILE</h3>
+                    <div class="imageicon"><img src="{% static 'College/images/user icon.svg' %}" id="output"></div>
+
+                    <div class="info col-md-10">
+                        <h5>ABC college of engineering</h5>
+                        <h5>Colege code-0132</h5>
+                        <br>
+                        <h6>19th street, highway,Goa</h6>
+                        <h6>9876543210</h6>
+                        <h6>abccollege@abc.in</h6>
+                        <h6>est. 2000</h6>
+                        <h6>Goa, India</h6>
+                    </div>
+            </div>
+        </div>
+          <div class="root col-md-12 row">
+            <div class="col-md-4"></div>
+            <div class="scroll col-md-5">
+                <div class="search col-md-12">
+                  <form action="">
+                    <input type="text" name="search" placeholder="Search..">
+                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                  </form>
+                </div>
+                <div class="feed col-md-12">
+                  <div class="event-card col-md-12">
+                    <div class="col-md-12 event-banner">
+                      <img src="{% static 'College/images/event-card.jpg' %}" alt="">
+                    </div>
+                    <div class="col-md-12 event-info">
+                        <h5>Lorem ipsum dolor sit amet.</h5>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime, cumque. Lorem ipsum dolor sit amet.
+                        </p>
+                        <div class="link col-md-12 row">
+                          <p class="col-md-6">abc college</p>
+                          <p class="col-md-4"><img src="{% static 'College/images/time black.svg' %}" alt=""> 1hr ago</p>
+                          <div class="col-md-2"><button><img id="save" src="{% static 'COllege/images/before bookmark.svg' %}" alt=""></button></div>
+                        </div>
+                        <script>
+                              $(document).ready(function(){
+                                  $("#save").click(function(){
+                                  var src = $(this).attr('src');
+                                  var newsrc = (src=="{% static 'College/images/before bookmark.svg' %}") ? '{% static "College/images/my events.svg" %}' : '{% static "College/images/before bookmark.svg" %}';
+                                  $(this).attr('src', newsrc );
+                                  });
+                              });
+                        </script>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+    
+        </div>
+
+        <div class="right-panel col-md-3">
+          <div class="logout">
+            <a href="./login.html"><button id="logout-btn">Logout <img src="{% static 'College/images/right hand arrow.svg' %}" alt=""></span></button></a>
+          </div>
+          <div class="menu">
+            <nav class="navbar">
+              <ul class="navbar-nav">
+                <a class="nav-link"><li class="nav-item">
+                  <img src="{% static 'College/images/MY PROFILE.svg' %}" alt="">COLLEGE PROFILE
+                </li></a>
+                <a class="nav-link" onclick="openNav('id-Messages')"><li class="nav-item">
+                  <img src="{% static 'College/images/MESSAGES.svg' %}" alt=""> MESSAGES
+                </li></a>
+                <a class="nav-link" onclick="openNav('id-Notifications')"><li class="nav-item">
+                  <img src="{% static 'College/images/NOTIFICATIONS.svg' %}" alt="">  NOTIFICATIONS
+                </li></a> 
+                <a class="nav-link" onclick="openNav()"><li class="nav-item">
+                    <img src="{% static 'College/images/calendar.svg' %}" alt="">CREATE EVENTS
+                </li></a>
+                <a class="nav-link" onclick="openNav('id-pending')"><li class="nav-item">
+                  <img src="{% static 'College/images/PENDING REQUESTS.svg' %}" alt="">PENDING REQUESTS
+                </li></a> 
+                <a class="nav-link" onclick="openNav('id-registered')"><li class="nav-item">
+                    <img src="{% static 'College/images/REGISTERED ALUMNUS.svg' %}" alt="">REGISTERED ALUMNUS
+                  </li></a> 
+                <a class="nav-link" onclick="openNav('id-Settings')"><li class="nav-item">
+                  <img src="{% static 'College/images/SETTINGS.svg' %}" alt=""> SETTINGS
+                </li></a>                   
+              </ul>
+            </nav>
+            <!-- settings -->
+            <div id="id-Settings" class="sidenav">
+              <div class="col-md-12 row"><h4 class="col-md-6">Settings</h4> <button class="closebtn col-md-2 back" onclick="closeNav('id-Settings')"><img src="{% static 'College/images/right hand arrow.svg' %}" alt=""></button></div>
+              <div class="sidenav-menu">
+                <a href="#"><img src="{% static 'College/images/PERSONAL SETTINGS ICON.svg' %}" alt=""> Personal Settings</a>
+                <a href="#"><img src="{% static 'College/images/SECURITY ICON.svg' %}" alt=""> Security</a>
+                <a href="#"><img src="{% static 'College/images/HELP ICON.svg' %}" alt=""> Help</a>
+                <a href="#"><img src="{% static 'College/images/ABOUT ICON.svg' %}" alt=""> About</a>
+                <a href="#"><img src="{% static 'College/images/PRIVACY ICON.svg' %}" alt=""> Privacy</a>
+              </div>
+              <div class="logout">
+                <a href="./login.html"><button id="sidenav-logout-btn">Logout <img src="{% static 'College/images/right hand arrow.svg' %}" alt=""></span></button></a>
+              </div>
+            </div>
+            <!-- messages -->
+            <div id="id-Messages" class="sidenav">
+              
+              <div class="search-sidenav col-md-12">
+                <div class="col-md-12 row"><h4 class="col-md-6">Chats</h4> <button class="closebtn col-md-2 back" onclick="closeNav('id-Messages')"><img src="{% static 'College/images/right hand arrow.svg' %}" alt=""></button></div>
+                <form action="">
+                  <input type="text" name="search" placeholder="Search..">
+                  <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </form>
+              </div>
+              <div class="sidenav-info sidenav-scroll">
+                  <div class="chat col-md-12 row">
+                    <div class="col-md-2 avtar"><img src="{% static 'College/images/user icon.svg' %}" alt=""></div>
+                    <div class="msg col-md-8"><h6>Lorem Ipsum Name</h6>
+                    <p class="text-muted">xyz college</p>
+                    <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p>
+                    </div>
+                    <div class="col-md-1 time">
+                        <p class="notify-count">2</p>
+                        <p class="timestamp">17:35</p>
+                    </div>
+                  </div>
+              </div>
+            </div>
+            <!-- notifications -->
+            <div id="id-Notifications" class="sidenav">
+              
+                <div class="col-md-12 row"><h4 class="col-md-6">Notifications</h4> <button class="closebtn col-md-2 back" onclick="closeNav('id-Notifications')"><img src="{% static 'College/images/right hand arrow.svg' %}" alt=""></button></div>
+                <div class="sidenav-info sidenav-scroll">
+                    <div class="chat col-md-12 row">
+                      <div class="col-md-2 avtar"><img src="{% static 'College/images/user icon.svg' %}" alt=""></div>
+                      <div class="msg col-md-8"><h6>Lorem Ipsum Name</h6>
+                      <p>Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet</p>
+                      </div>
+                      <div class="col-md-1 time">
+                          <p class="timestamp">17:35</p>
+                      </div>
+                    </div>
+                </div>
+              </div>
+
+              <!-- registered-alumnus -->
+              <div id="id-registered" class="sidenav">
+              
+                <div class="search-sidenav col-md-12">
+                  <div class="col-md-12 row"><h5 class="col-md-10">Registered Alumnus</h5> <button class="closebtn col-md-2 back" onclick="closeNav('id-registered')"><img src="{% static 'College/images/right hand arrow.svg' %}" alt=""></button></div>
+                  <form action="">
+                    <input type="text" name="search" placeholder="Search..">
+                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                  </form>
+                </div>
+                <div class="sidenav-info sidenav-scroll">
+                    <div class="chat col-md-12 row">
+                      <div class="col-md-2 avtar"><img src="{% static 'College/images/user icon.svg' %}" alt=""></div>
+                      <div class="msg col-md-8">
+                        <h6>{{ data.name }} </h6>
+                        <p>{{ data.email }}</p>
+                      </div>
+                    </div>
+                </div>
+              </div>
+               
+              <!-- pending requests -->
+              <div id="id-pending" class="sidenav">
+              
+                <div class="search-sidenav col-md-12">
+                  <div class="col-md-12 row"><h5 class="col-md-10">Pending Requests</h5> <button class="closebtn col-md-2 back" onclick="closeNav('id-pending')"><img src="{% static 'College/images/right hand arrow.svg' %}" alt=""></button></div>
+                </div>
+                <div class="sidenav-info sidenav-scroll">
+                    
+                    <div class="chat col-md-12 row accordion" id="abc">
+                        <div class="msg col-md-8">
+                          <h6>Shivansh Tiwari</h6>
+                          <p>shivansht9211@gmail.com</p>
+                        
+                        </div>
+                        <div class="col-md-1 time">
+                          <p class="timestamp">17:35</p>
+                        </div>
+                    </div>
+                    
+                    <div class="panel col-md-12 row text-muted">
+                        <div class="col-md-6">
+                            <p>1703213101</p>
+                            <p>Batch 2000</p>
+                            <button class="btn" id ="xyz">Verify</button>
+                        </div>
+                        <script>
+                          $("#xyz").click(function () {
+                            $("#abc").css("display", "none");
+                            $(".panel").css("display", "none");
+                          });
+                        </script>
+                        <div class="col-md-5">
+                            <p>id-proof</p>
+                            <img src="{% static 'College/images/idproof.svg' %}" alt="">
+                        </div>
+                      </div>
+                </div>
+
+                <script>                      
+                        var acc = document.getElementsByClassName("accordion");
+                        var i;
+
+                        for (i = 0; i < acc.length; i++) {
+                        acc[i].addEventListener("click", function() {
+                            this.classList.toggle("active");
+                            var panel = this.nextElementSibling;
+                            if (panel.style.display === "flex") {
+                            panel.style.display = "none";
+                            } else {
+                            panel.style.display = "flex";
+                            }
+                        });
+                        }
+
+                </script>
+              </div>
+          </div>
+
+          <script>
+            function openNav(x) {
+                  document.getElementById(x).style.width = "22vw";
+                }
+
+                function closeNav(x) {
+                  document.getElementById(x).style.width = "0";
+                }
+          </script>
+      </div>
+        </div>
+        <footer class="col-md-12 foot fixed-bottom">
+            <p id="f-text">© Copyright 2020, TEAM RACHNATMAK</p>
+        </footer>
+
+    </div>
+</body>
+</html>

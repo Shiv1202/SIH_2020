@@ -16,15 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from College import views
+from Users import views as u_views
 from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('Users.urls')),
-    path('user-register/', include('Users.urls')),
+    path('register/', include('Users.urls')),
     # url(r'^user-register/', include('Users.urls')),
-    path('user-login/', include('Users.urls')),
-    path('dashboard-user/', include('Users.urls')),
+    path('login/', include('Users.urls')),
+    #path('user-home/', include('Users.urls')),
+    path('user-homepage/', u_views.home, name = 'user-homepage'),
     path('college-login/', views.college_login, name = 'college_login'),
-    path('college-home/', include('College.urls'))
+    path('college-home/', views.college_home, name = 'college-home')
 ]

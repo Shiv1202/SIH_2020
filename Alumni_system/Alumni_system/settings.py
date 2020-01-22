@@ -119,6 +119,13 @@ USE_L10N = True
 USE_TZ = True
 
 
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'teamrachnatmaksih2020@gmail.com'
+EMAIL_HOST_PASSWORD = 'rachnatmak2020'
+EMAIL_PORT = 587
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
