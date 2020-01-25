@@ -31,14 +31,10 @@ def register(request):
     if request.method == 'POST':
         form = forms.RegistrationForm(request.POST)
         if form.is_valid():
-            # user = form.save()
             
             form.save()
             user = Alumni_User.objects.filter(is_varified = True)
             
-        
-
-            #user12.password=make_password(user12.password,None, 'md5')
             user12 = form.save(commit=False)
             user12.password=make_password(user12.password)
             user12.is_active = False
@@ -121,8 +117,6 @@ def forget_password(request):
     if request.method == 'POST':
         email = request.POST['email']
         user12=None
-        #print('hello')
-        #print(email)
         try :
             user12 = Permanent_User.objects.get(email=email)
             current_site = get_current_site(request)
